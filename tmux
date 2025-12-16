@@ -1,3 +1,42 @@
+# Options to make tmux more pleasant
+set -g mouse on
+set -g default-terminal "xterm-256color"
+
+# Enable clipboard
+set -g set-clipboard on
+
+# Enable gapeless window
+set -g renumber-windows on
+
+# Make index start from 1
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Set scrollback size
+set -g history-limit 10000
+
+# Set focus events on for nvim
+set -g focus-events on
+
+# Set vi mode globally
+setw -g mode-keys vi
+
+# Reload config file
+bind r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+# Vim-style pane navigation (C-b h/j/k/l)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Vim-style pane resizing (C-b H/J/K/L)
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Alternative: Use Ctrl-h/j/k/l for resizing
 bind -r C-h resize-pane -L 5
 bind -r C-j resize-pane -D 5
 bind -r C-k resize-pane -U 5
