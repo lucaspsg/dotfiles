@@ -1,6 +1,6 @@
 # Options to make tmux more pleasant
 set -g mouse on
-set -g default-terminal "xterm-256color"
+set -g default-terminal "tmux-256color"
 
 # Enable clipboard
 set -g set-clipboard on
@@ -36,19 +36,13 @@ bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
-# Alternative: Use Ctrl-h/j/k/l for resizing
-bind -r C-h resize-pane -L 5
-bind -r C-j resize-pane -D 5
-bind -r C-k resize-pane -U 5
-bind -r C-l resize-pane -R 5
-
 # Vim-style copy mode bindings
 bind -T copy-mode-vi v send-keys -X begin-selection
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
 
 # Paste from clipboard
-bind p run "tmux set-buffer \"$(xclip -o -selection clipboard)\"; tmux paste-buffer"
+# bind p run "tmux set-buffer \"$(xclip -o -selection clipboard)\"; tmux paste-buffer"
 
 # Alternative clipboard commands for macOS (uncomment if on macOS)
 # bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
