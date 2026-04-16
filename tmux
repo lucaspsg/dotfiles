@@ -1,3 +1,8 @@
+# sets Ctrl+A as prefix
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
 # Options to make tmux more pleasant
 set -g mouse on
 set -g default-terminal "tmux-256color"
